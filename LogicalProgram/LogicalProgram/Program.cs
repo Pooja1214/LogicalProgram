@@ -1,18 +1,25 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-//Program For Reverse Number
-
-Console.Write("Enter a Number : ");
-int number = int.Parse(Console.ReadLine());
-int reminder, reverse = 0;
-while (number > 0)
+﻿public class Sqrt_Newton
 {
-    //Get the remainder by dividing the number with 10  
-    reminder = number % 10;
-    //multiply the sum with 10 and then add the reminder
-    reverse = (reverse * 10) + reminder;
-    //Get the quotient by dividing the number with 10 
-    number = number / 10;
+    public static double c, t, epsilon;
+    public static void Sqrt(double c)
+    {
+        double t = c;
+        double epsilon = 1 * Math.Pow(10, -15);
+        while (Math.Abs(t - c / t) > epsilon * t)
+        {
+            t = (t + c / t) / 2;
+        }
+        Console.WriteLine($"Square root of {c} is : {t} ");
+
+    }
 }
-Console.WriteLine($"The Reverse order is : {reverse}");
-Console.ReadKey();
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Sqrt_Newton s = new Sqrt_Newton();
+        Console.WriteLine("Enter a number value");
+        double c = Convert.ToDouble(Console.ReadLine());
+        Sqrt_Newton.Sqrt(c);
+    }
+};

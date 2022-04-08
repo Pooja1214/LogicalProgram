@@ -1,13 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to Coupon Number !");
-Random random = new Random();
+Console.WriteLine("Hello, World!");
+//Program Fibonacci series
 
-var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+int firstNumber = 0, SecondNumber = 1, nextNumber, number;
+Console.Write("Enter the number upto which print the Fibonacci series : ");
+number = int.Parse(Console.ReadLine());
 
-var stringChars = new char[6];
+//First print first and second number
+Console.Write(firstNumber + " " + SecondNumber + " ");
 
-for (int i = 0; i < stringChars.Length; i++)
+nextNumber = firstNumber + SecondNumber;
+//Starts the loop from 2 because 0 and 1 are already printed
+for (int i = 2; nextNumber < number; i++)
 {
-    stringChars[i] = chars[random.Next(chars.Length)];
-    Console.WriteLine(" Coupon Number " + stringChars[i]);
+    Console.Write(nextNumber + " ");
+    firstNumber = SecondNumber;
+    SecondNumber = nextNumber;
+    nextNumber = firstNumber + SecondNumber;
 }

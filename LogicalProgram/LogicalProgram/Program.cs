@@ -1,19 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to Prime Number !");
+Console.WriteLine("Hello, World!");
+//Program For Reverse Number
+
+Console.Write("Enter a Number : ");
+int number = int.Parse(Console.ReadLine());
+int reminder, reverse = 0;
+while (number > 0)
 {
-    int n, i, m = 0, sum = 0;
-    Console.Write("Enter the Number to check Prime: ");
-    n = Convert.ToInt32(Console.ReadLine());
-    m = n / 2;
-    for (i = 2; i <= m; i++)
-    {
-        if (n % i == 0)
-        {
-            Console.Write("Number is not Prime.");
-            sum = 1;
-            break;
-        }
-    }
-    if (sum == 0)
-        Console.Write("Number is Prime.");
+    //Get the remainder by dividing the number with 10  
+    reminder = number % 10;
+    //multiply the sum with 10 and then add the reminder
+    reverse = (reverse * 10) + reminder;
+    //Get the quotient by dividing the number with 10 
+    number = number / 10;
 }
+Console.WriteLine($"The Reverse order is : {reverse}");
+Console.ReadKey();

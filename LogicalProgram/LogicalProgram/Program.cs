@@ -1,25 +1,27 @@
-﻿public class Sqrt_Newton
+﻿using System;
+using System.Diagnostics;
+using System.Threading;
+class Program
 {
-    public static double c, t, epsilon;
-    public static void Sqrt(double c)
+    static void Main()
     {
-        double t = c;
-        double epsilon = 1 * Math.Pow(10, -15);
-        while (Math.Abs(t - c / t) > epsilon * t)
-        {
-            t = (t + c / t) / 2;
-        }
-        Console.WriteLine($"Square root of {c} is : {t} ");
 
+        // Create new stopwatch.
+        Stopwatch stopwatch = new Stopwatch();
+
+        Console.WriteLine("Starting Time ");
+        stopwatch.Start();
+
+        // Do something.
+        for (int i = 0; i < 1000; i++)
+        {
+            Thread.Sleep(5);
+        }
+
+        Console.WriteLine("Time stopped");
+        stopwatch.Stop();
+
+        // Write result.
+        Console.WriteLine("Time elapsed: {0}", stopwatch.Elapsed);
     }
 }
-internal class Program
-{
-    static void Main(string[] args)
-    {
-        Sqrt_Newton s = new Sqrt_Newton();
-        Console.WriteLine("Enter a number value");
-        double c = Convert.ToDouble(Console.ReadLine());
-        Sqrt_Newton.Sqrt(c);
-    }
-};
